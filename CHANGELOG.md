@@ -1,6 +1,79 @@
 # Changelog
 
 
+## v1.0.1-20
+
+[compare changes](https://github.com/zSoulweaver/kient/compare/v1.0.1-19...v1.0.1-20)
+
+### 🩹 Fixes
+
+- Remove dto from barrel ([1467285](https://github.com/zSoulweaver/kient/commit/1467285))
+
+## v1.0.1-19
+
+[compare changes](https://github.com/zSoulweaver/kient/compare/v1.0.1-18...v1.0.1-19)
+
+### 🩹 Fixes
+
+- Login auth flow ([9a04478](https://github.com/zSoulweaver/kient/commit/9a04478))
+
+## v1.0.1-18
+
+[compare changes](https://github.com/zSoulweaver/kient/compare/v1.0.1-17...v1.0.1-18)
+
+### 🚀 Enhancements
+
+- Add channel message history ([b399614](https://github.com/zSoulweaver/kient/commit/b399614))
+
+### 🩹 Fixes
+
+- Deepkit casting for generic api responses ([0f0701d](https://github.com/zSoulweaver/kient/commit/0f0701d))
+
+### 💅 Refactors
+
+- Use generic api response cast for message history ([1a8ded4](https://github.com/zSoulweaver/kient/commit/1a8ded4))
+
+## v1.0.1-17
+
+[compare changes](https://github.com/zSoulweaver/kient/compare/v1.0.1-16...v1.0.1-17)
+
+### 🚀 Enhancements
+
+- Proxy support ([#25](https://github.com/zSoulweaver/kient/pull/25))
+- Add `unpinMessage` Method & `pinMessage` Fix ([#24](https://github.com/zSoulweaver/kient/pull/24))
+
+## v1.0.1-16
+
+[compare changes](https://github.com/zSoulweaver/kient/compare/v1.0.1-15...v1.0.1-16)
+
+### 🩹 Fixes
+
+- Update pusher app key ([#20](https://github.com/zSoulweaver/kient/pull/20))
+
+## v1.0.1-15
+
+[compare changes](https://github.com/zSoulweaver/kient/compare/v1.0.1-14...v1.0.1-15)
+
+### 🩹 Fixes
+
+- Type validation error for profile_picture property (getClip) ([#19](https://github.com/zSoulweaver/kient/pull/19))
+
+## v1.0.1-14
+
+[compare changes](https://github.com/zSoulweaver/kient/compare/v1.0.1-13...v1.0.1-14)
+
+### 🚀 Enhancements
+
+- Add banUser & unbanUser ([#16](https://github.com/zSoulweaver/kient/pull/16))
+
+### 🩹 Fixes
+
+- Update pusher app key ([#18](https://github.com/zSoulweaver/kient/pull/18))
+
+### 🏡 Chore
+
+- Remove npm publish from release script ([d545fc4](https://github.com/zSoulweaver/kient/commit/d545fc4))
+
 ## v1.0.1-13
 
 [compare changes](https://github.com/zSoulweaver/kient/compare/v1.0.1-12...v1.0.1-13)

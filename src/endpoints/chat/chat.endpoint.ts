@@ -4,9 +4,12 @@ import type { SendMessageResponse } from './dto/send-message.response'
 import type { PinMessageInput } from './dto/pin-message.input'
 import type { SendMessageInput } from './dto/send-message.input'
 import type { BanUserInput } from './dto/ban-user.input'
+// eslint-disable-next-line ts/consistent-type-imports
+import { Messages } from './dto/messages.response'
 import type { GenericApiResponse } from '@/endpoints/generic-api.response'
 import { KientApiError } from '@/errors'
 import { buildBody } from '@/utils/build-body'
+import { castGenericAPIResponse } from '@/utils/cast-generic-api-response'
 
 interface ChatMessageReference {
   messageId: string
@@ -92,13 +95,42 @@ export class ChatEndpoint extends BaseEndpoint {
       endpoint: `api/v2/channels/${channel}/pinned-message`,
       method: 'post',
       options: {
-        body: JSON.stringify(body),
+        body,
       },
     })
     if (response.status !== 200)
       throw new KientApiError('Failed to pin chatroom message', { cause: response })
 
     const deserializedResponse = cast<GenericApiResponse<null>>(response.body)
+    if (deserializedResponse.status.error)
+      throw new KientApiError(deserializedResponse.status, { cause: response })
+
+    return deserializedResponse
+  }
+
+  public async unpinMessage(channel: string) {
+    this.checkAuthenticated()
+
+    const response = await this._apiClient.callKickApi({
+      endpoint: `api/v2/channels/${channel}/pinned-message`,
+      method: 'delete',
+    })
+    if (response.status !== 200)
+      throw new KientApiError('Failed to unpin chatroom message', { cause: response })
+
+    const deserializedResponse = cast<GenericApiResponse<null>>(response.body)
+    if (deserializedResponse.status.error)
+      throw new KientApiError(deserializedResponse.status, { cause: response })
+
+    return deserializedResponse
+  }
+
+  public async getMessageHistory(channelId: number) {
+    const response = await this._apiClient.callKickApi({ endpoint: `api/v2/channels/${channelId}/messages` })
+    if (response.status !== 200)
+      throw new KientApiError('Failed to get currently pinned message', { cause: response })
+
+    const deserializedResponse = castGenericAPIResponse<Messages>(response.body)
     if (deserializedResponse.status.error)
       throw new KientApiError(deserializedResponse.status, { cause: response })
 
@@ -113,19 +145,19 @@ export class ChatEndpoint extends BaseEndpoint {
       body = buildBody<BanUserInput>({
         banned_username: target,
         permanent: true,
-      });
+      })
     } else {
       body = buildBody<BanUserInput>({
         banned_username: target,
-        duration: duration,
+        duration,
         permanent: false,
-      });
+      })
     }
     const response = await this._apiClient.callKickApi({
       endpoint: `api/v2/channels/${channel}/bans`,
       method: 'post',
       options: {
-        body: body,
+        body,
       },
     })
     if (response.status !== 200)
@@ -140,7 +172,7 @@ export class ChatEndpoint extends BaseEndpoint {
 
   public async unbanUser(channel: string, target: string) {
     this.checkAuthenticated()
-  
+
     const response = await this._apiClient.callKickApi({
       endpoint: `api/v2/channels/${channel}/bans/${target}`,
       method: 'delete',
@@ -154,5 +186,4 @@ export class ChatEndpoint extends BaseEndpoint {
 
     return deserializedResponse
   }
-
 }
