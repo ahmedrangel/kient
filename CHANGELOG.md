@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v1.0.1-23
+
+[compare changes](https://github.com/ahmedrangel/kient/compare/v1.0.1-20...v1.0.1-23)
+
+### 🚀 Enhancements
+
+- Add get bans ([43902f9](https://github.com/ahmedrangel/kient/commit/43902f9))
+
+### 🩹 Fixes
+
+- Improve cycletls headers ([46c1ba8](https://github.com/ahmedrangel/kient/commit/46c1ba8))
+- Adjust xsrf-token error condition ([9c0939b](https://github.com/ahmedrangel/kient/commit/9c0939b))
+- Login flow ([188bd95](https://github.com/ahmedrangel/kient/commit/188bd95))
+
+### 🏡 Chore
+
+- Adjust headers order ([edd6333](https://github.com/ahmedrangel/kient/commit/edd6333))
+- Update kick android app version user agent ([cbde314](https://github.com/ahmedrangel/kient/commit/cbde314))
+- **package:** Update author ([190403c](https://github.com/ahmedrangel/kient/commit/190403c))
+
 ## v1.0.1-20
 
 [compare changes](https://github.com/zSoulweaver/kient/compare/v1.0.1-19...v1.0.1-20)
