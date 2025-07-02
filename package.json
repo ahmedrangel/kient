@@ -4,9 +4,9 @@
   "version": "1.0.1-22",
   "packageManager": "pnpm@10.12.4",
   "description": "TypeScript-First Client Library for Kick.com",
-  "author": "Soulweaver",
+  "author": "ahmedrangel",
   "license": "MIT",
-  "repository": "zSoulweaver/kient",
+  "repository": "ahmedrangel/kient",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
