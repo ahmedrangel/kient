@@ -1,5 +1,5 @@
 {
-  "name": "kient",
+  "name": "@ahmedrangel/kient",
   "type": "module",
   "version": "1.0.1-23",
   "packageManager": "pnpm@10.12.4",
