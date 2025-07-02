@@ -1,4 +1,5 @@
 export interface LoginInput {
+  code?: number | string
   email: string
   password: string
   one_time_password?: string | number

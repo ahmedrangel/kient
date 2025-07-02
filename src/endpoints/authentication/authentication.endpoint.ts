@@ -23,11 +23,13 @@ export class AuthenticationEndpoint extends BaseEndpoint {
     await this.getCsrfHeaders()
 
     const body = buildBody<LoginInput>({
+      code: credentials.otc,
       email: credentials.email,
       password: credentials.password,
       one_time_password: credentials.otc,
       isMobileRequest: true,
     })
+
     const response = await this._apiClient.callKickApi({
       endpoint: 'mobile/login',
       method: 'post',
